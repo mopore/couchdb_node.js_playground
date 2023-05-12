@@ -2,13 +2,13 @@ version: '3.8'
 
 services:
   couchdb:
-    image: treehouses/couchdb:2.3.1 
-    volumes:
-      - ./couchdb_data:/opt/couchdb/data
+    image: karasevm/couchdb:3.3.2
+    container_name: local-couchdb
     restart: unless-stopped
-    container_name: couchdb
     ports:
       - "5984:5984"
+    volumes:
+      - ./local.ini:/opt/couchdb/etc/local.ini    
     environment:
       COUCHDB_USER: admin
       COUCHDB_PASSWORD: secret_password
