@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  couchdb:
+    image: treehouses/couchdb:2.3.1 
+    volumes:
+      - ./couchdb_data:/opt/couchdb/data
+    restart: unless-stopped
+    container_name: couchdb
+    ports:
+      - "5984:5984"
+    environment:
+      COUCHDB_USER: admin
+      COUCHDB_PASSWORD: secret_password

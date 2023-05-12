@@ -11,7 +11,9 @@
   "scripts": {
     "preinstall": "npx only-allow pnpm",
     "test": "mocha dist/test/**/*.js --recursive --exit",
-    "build": "rm -rf ./dist && tsc -b"
+    "build": "rm -rf ./dist && tsc -b",
+    "start-couchdb": "docker compose -f config/docker-compose.yaml up -d",
+    "stop-couchdb": "docker compose -f config/docker-compose.yaml down"
   },
   "keywords": [
     "template",
@@ -33,6 +35,7 @@
     "typescript": "^4.9.5"
   },
   "dependencies": {
-    "dotenv": "^16.0.3"
+    "dotenv": "^16.0.3",
+    "nano": "^10.1.2"
   }
 }

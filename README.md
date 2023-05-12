@@ -1,13 +1,13 @@
 ```
-    ███        ▄████████   ▄▄▄▄███▄▄▄▄      ▄███████▄  ▄█          ▄████████     ███        ▄████████ 
-▀█████████▄   ███    ███ ▄██▀▀▀███▀▀▀██▄   ███    ███ ███         ███    ███ ▀█████████▄   ███    ███ 
-   ▀███▀▀██   ███    █▀  ███   ███   ███   ███    ███ ███         ███    ███    ▀███▀▀██   ███    █▀  
-    ███   ▀  ▄███▄▄▄     ███   ███   ███   ███    ███ ███         ███    ███     ███   ▀  ▄███▄▄▄     
-    ███     ▀▀███▀▀▀     ███   ███   ███ ▀█████████▀  ███       ▀███████████     ███     ▀▀███▀▀▀     
-    ███       ███    █▄  ███   ███   ███   ███        ███         ███    ███     ███       ███    █▄  
-    ███       ███    ███ ███   ███   ███   ███        ███▌    ▄   ███    ███     ███       ███    ███ 
-   ▄████▀     ██████████  ▀█   ███   █▀   ▄████▀      █████▄▄██   ███    █▀     ▄████▀     ██████████ 
-                                                      ▀                                               
+ ▄████████  ▄██████▄  ███    █▄   ▄████████    ▄█    █▄    ████████▄  ▀█████████▄  
+███    ███ ███    ███ ███    ███ ███    ███   ███    ███   ███   ▀███   ███    ███ 
+███    █▀  ███    ███ ███    ███ ███    █▀    ███    ███   ███    ███   ███    ███ 
+███        ███    ███ ███    ███ ███         ▄███▄▄▄▄███▄▄ ███    ███  ▄███▄▄▄██▀  
+███        ███    ███ ███    ███ ███        ▀▀███▀▀▀▀███▀  ███    ███ ▀▀███▀▀▀██▄  
+███    █▄  ███    ███ ███    ███ ███    █▄    ███    ███   ███    ███   ███    ██▄ 
+███    ███ ███    ███ ███    ███ ███    ███   ███    ███   ███   ▄███   ███    ███ 
+████████▀   ▀██████▀  ████████▀  ████████▀    ███    █▀    ████████▀  ▄█████████▀  
+                                                                                   
 ```
 
 Source for ASCII-fonts: https://www.coolgenerator.com/ascii-text-generator
@@ -15,12 +15,10 @@ Source for ASCII-fonts: https://www.coolgenerator.com/ascii-text-generator
 
 
 # What is this?
-
-This is template for TypeScript project in VS Code with linting.
+A playground project to test out CouchDB as a database for a NodeJS project.
 
 # What's the motivation?
-
-To have an easier start for my projects.
+Having this as potential template for future projects and not only for PAN.
 
 # Installation
 Place keys and environment variable values inside a .env file in the project's root folder.
@@ -42,30 +40,32 @@ npm install
 
 
 # How to use
-Provide an adequate descrioption.
+Provide an adequate description.
+CouchDB is in general REST-based.
+To check the connection you can use the following command:
+```
+curl http://admin:secret_password@localhost:5984
+```
+
+Login with: `http://localhost:5984/_utils/`
+
+
+
+To create and delete a database you can use the following command:
+``` 
+curl -X PUT http://admin:secret_password@localhost:5984/<database_name>
+curl -X DELETE http://admin:secret_password@localhost:5984/<database_name>
+```
+
+
+Shutdown properly:
+```
+curl -X POST http://admin:secret_password@localhost:5984/_shutdown
+```
+
+
 
 # Release History
 
-## v0.5.1
-- Remove not used workspace configuration.
-
-## v0.5.0
-- Upgrade all components to latest versions.
-- Use 'NodeNext' for module resolution.
-- Replace 'npm' with 'pnpm'.
-- Replace 'jest' with 'mocha'.
-
-## v0.4.1
-- Template restrictions removed in linting.
-## v0.4.0
-- NCU guide added to readme.
-- Upgraded to latest versions of TypeScript (4.5.2), Jest (27.4.3) and the rest.
-
-## v0.3.0
-- Upgrade of TypeScript to 4.3
-
-## v0.2.0
-- Support for dotenv
-
-## v0.1.0
+## v0.1.0 (Untagged)
 - Initial commit.
